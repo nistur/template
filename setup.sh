@@ -26,10 +26,6 @@ if [ ${1} ] ; then
         cat ${file} | sed -e "s/template/${LIBNAME}/g" -e "s/tmpl/${PREFIXNAME}/g" -e "s/TMPL/${DEFINEPREFIX}/g" > ${file}-tmp
         mv ${file}-tmp $file
     done
-
-    echo "Converting build script"
-    cat premake4.lua | sed -e "s/template/${LIBNAME}/g" -e "s/TMPL/${DEFINEPREFIX}/g" > premake4.lua-tmp
-    mv premake4.lua-tmp premake4.lua
 else
     echo "usage: setup.sh LIBNAME [PREFIXNAME [DEFINEPREFIX]]"
 fi
